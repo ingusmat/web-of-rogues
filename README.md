@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# 🕸️ Web of Rogues
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based roguelike built with modern web tech — think _Zelda 1_ meets _Nethack_, but with TypeScript and Tailwind instead of C and curses.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **React** + **Vite** for blazing-fast dev + modular components
+- **Zustand** for state management (player, map, etc.)
+- **Tailwind CSS** for layout and utility styling
+- **ROT.js** for dungeon generation and field of view
+- **TypeScript** for strictness and future-proofing
+- **Ladle** for interactive component development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🧱 Features So Far
+
+- ✅ Procedurally generated dungeons using ROT.js
+- ✅ Div-based tile map using Tailwind classes for styling
+- ✅ Smooth camera that follows the player
+- ✅ WASD movement
+- ✅ Player spawns in a valid floor tile
+- ✅ Collision detection (no walking through walls)
+
+---
+
+## 🎯 Goals
+
+- Top-down, real-time roguelike with infinite procedural levels
+- Classic fog-of-war and field-of-view mechanics
+- Monsters on predictable rails (think _Pac-Man_ meets _Cult of the Lamb_)
+- Simple ability system (`j`, `k`, `l`, `;`)
+- Items and pickups
+- Infinite dungeon descent via stairs, increasing difficulty
+
+---
+
+## 💡 Design Philosophy
+
+- SUPER modular — everything is built to be extended and modified
+- All logic stays in client memory — no garbage collection from rerenders
+- Not a commercial game — a playground to show off web dev skills and creative architecture
+
+---
+
+## 🛠️ Development
+
+To start the dev server:
+
+```
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+To preview story components in isolation with Ladle:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm run ladle
+```
+
+📁 Project Structure
+src/
+components/ # React UI components (tiles, HUD, etc.)
+engine/ # Map generation, fog of war, utilities
+state/ # Zustand stores
+types/ # Shared TypeScript types
+utils/ # Coordinate helpers, math, etc.
+
+🧪 Next Up
+
+- Fog of war (FOV + memory)
+- Stairs + level generation
+- Simple enemies
+- Abilities
+- Inventory system
+
+🧙 Author
+Made by Ingus Mat Burleson — building Web of Rogues and other projects at github.com/ingusmat
